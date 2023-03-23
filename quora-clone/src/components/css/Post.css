@@ -32,7 +32,16 @@
     display: flex;
     flex-direction: column;
   }
-  
+  .post-answered{
+       display: flex;
+       align-items: center;
+       margin-bottom: 10px;
+       font-size: 12px;
+       font-weight: 600;
+       color: #888;
+        
+      
+  }
   .post__body > .post__question {
     margin-top: 10px;
     font-weight: bold;

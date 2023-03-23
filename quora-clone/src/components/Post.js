@@ -7,6 +7,7 @@ import {
   ShareOutlined,
 } from "@mui/icons-material";
 import { Avatar } from "@mui/material";
+// import { margin } from "@mui/system";
 import React from "react";
 import "./css/Post.css";
 
@@ -34,22 +35,47 @@ function Post() {
           <MoreHorizOutlined />
         </div>
       </div>
-      <p>1 Answer</p>
-      <div className="post__answer">
-        <div className="post-answer-container">
+      <p
+        style={{
+          color: "rgba(0,0,0,0.5)",
+          fontSize: "12px",
+          fontWeight: "bold",
+          margin: "10px 0px",
+        }}
+      >
+        1 Answer
+      </p>
+      <div
+        style={{
+          margin: "5px 0px 0px 0px ",
+          padding: "5px 0px 0px 20px",
+          borderTop: "1px solid lightgray",
+        }}
+        className="post__answer"
+      >
+        <div
+          style={{
+            display: "felx",
+            flexDirection: "column",
+            width: "100%",
+            padding: "10px 5px",
+            borderTop: "1px solid lightgray",
+          }}
+          className="post-answer-container"
+        >
           <div className="post-answered">
-            <Avatar/>
-              <div className="post-info">
-                <p>
-
-                  username 
-                </p>
-                <span>timestap</span>
-              </div>
+            <Avatar />
+            <div
+              style={{
+                margin: "0px 10px",
+              }}
+              className="post-info"
+            >
+              <p>username</p>
+              <span>timestap</span>
+            </div>
           </div>
-          <div className="post-answer">
-            this is test answer
-          </div>
+          <div className="post-answer">this is test answer</div>
         </div>
       </div>
     </div>
