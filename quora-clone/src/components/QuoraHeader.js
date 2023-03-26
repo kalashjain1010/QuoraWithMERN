@@ -3,20 +3,22 @@ import HomeIcon from "@mui/icons-material/Home";
 import FeaturedPlayListOutlinedIcon from "@mui/icons-material/FeaturedPlayListOutlined";
 import {
   AssignmentTurnedInOutlined,
+  // Close,
+  // closeIcon,
   NotificationsOutlined,
   PeopleAltOutlined,
   Search,
 } from "@mui/icons-material";
+import CloseIcon from '@mui/icons-material/Close';
 import { Modal } from 'react-responsive-modal';
 import { Avatar,Button } from "@mui/material";
 import './css/QuoraHeader.css';
 
 function QuoraHeader() {
 
-  const [open, setOpen] = useState(false);
-
-  const onOpenModal = () => setOpen(true);
-  const onCloseModal = () => setOpen(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const Close =(<CloseIcon/>)
+  
 
   
   return (
@@ -52,8 +54,8 @@ function QuoraHeader() {
         <div className="qHeader__Rem">
           <Avatar />
         </div>
-        <Button onClick={onOpenModal}  >Add a question</Button>
-        <Modal open={open} onClose={onCloseModal} center>
+        <Button onClick={() => setIsModalOpen(true)} >Add a question</Button>
+        <Modal open={isModalOpen} closeIcon={Close}>
         <h2>Simple centered modal</h2>
       </Modal>
       </div>
