@@ -118,7 +118,7 @@
     color: #222;
     background: rgb(214, 214, 214);
   }
-  
+/*   
   .modal__title {
     display: flex;
     align-items: center;
@@ -220,7 +220,7 @@
   .modal__buttons > .add:hover {
     background-color: #eee;
     color: #222;
-  }
+  } */
   
   @media only screen and (max-width: 600px) {
     .qHeader__icons {

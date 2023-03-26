@@ -20,8 +20,11 @@ function Post() {
         <small>time</small>
       </div>
       <div className="post__body">
+        <div className="post__question">
+
         <p>this is test question</p>
         <button className="post__btnAnswer">answer</button>
+        </div>
       </div>
       <div className="post__footer">
         <div className="post__footerAction">
