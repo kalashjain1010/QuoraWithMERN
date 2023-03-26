@@ -9,18 +9,17 @@ import {
   PeopleAltOutlined,
   Search,
 } from "@mui/icons-material";
-import CloseIcon from '@mui/icons-material/Close';
-import { Modal } from 'react-responsive-modal';
-import { Avatar,Button } from "@mui/material";
-import './css/QuoraHeader.css';
+import 'react-responsive-modal/styles.css'
+import CloseIcon from "@mui/icons-material/Close";
+import { Modal } from "react-responsive-modal";
+import { Avatar, Button } from "@mui/material";
+import "./css/QuoraHeader.css";
+
 
 function QuoraHeader() {
-
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const Close =(<CloseIcon/>)
-  
+  const Close = <CloseIcon />;
 
-  
   return (
     <div className="qHeader">
       <div className="qHeader-content">
@@ -54,10 +53,22 @@ function QuoraHeader() {
         <div className="qHeader__Rem">
           <Avatar />
         </div>
-        <Button onClick={() => setIsModalOpen(true)} >Add a question</Button>
-        <Modal open={isModalOpen} closeIcon={Close}>
-        <h2>Simple centered modal</h2>
-      </Modal>
+        <Button onClick={() => setIsModalOpen(true)}>Add a question</Button>
+        <Modal
+          open={isModalOpen}
+          closeIcon={Close}
+          onClose={() => setIsModalOpen(false)}
+          closeOnEsc  
+          center
+          closeOnOverlayClick={false}
+          styles={{
+            overlay:{
+              height: 'auto',
+            }
+          }}
+        >
+          <h2>Simple centered modal</h2>
+        </Modal>
       </div>
     </div>
   );
