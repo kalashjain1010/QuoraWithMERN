@@ -7,11 +7,18 @@ import {
   ShareOutlined,
 } from "@mui/icons-material";
 import { Avatar } from "@mui/material";
-// import { margin } from "@mui/system";
-import React from "react";
+import React, { useState } from "react";
 import "./css/Post.css";
+import { Modal } from "react-responsive-modal";
+import "./css/QuoraHeader.css";
+import CloseIcon from "@mui/icons-material/Close";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 
 function Post() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const Close = <CloseIcon />;
+
   return (
     <div className="post">
       <div className="post__info">
@@ -21,9 +28,54 @@ function Post() {
       </div>
       <div className="post__body">
         <div className="post__question">
-
-        <p>this is test question</p>
-        <button className="post__btnAnswer">answer</button>
+          <p>this is test question</p>
+          <button
+            onClick={() => setIsModalOpen(true)}
+            className="post__btnAnswer"
+          >
+            answer
+          </button>
+          <Modal
+            open={isModalOpen}
+            closeIcon={Close}
+            onClose={() => setIsModalOpen(false)}
+            closeOnEsc
+            center
+            closeOnOverlayClick={false}
+            styles={{
+              overlay: {
+                height: "auto",
+              },
+            }}
+          >
+            <div className="modal__question">
+              <h1>this is test ques</h1>
+              <p>
+                asked by <span className="name">Username</span> on {" "} <span className="name">Time</span>
+              </p>
+            </div>
+            <div className="modal__answer">
+              <ReactQuill placeholder="Enter your answer" />
+            </div>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                flexDirection: "row",
+                justifyContent: "space-between",
+                marginTop: "50px",
+                width: "100%",
+              }}
+              className="modal__button"
+            >
+              <button className="cancel" onClick={() => setIsModalOpen(false)}>
+                cancel
+              </button>
+              <button className="add" type="submit">
+                Add an answer
+              </button>
+            </div>
+          </Modal>
         </div>
       </div>
       <div className="post__footer">

@@ -19,6 +19,7 @@ import "./css/QuoraHeader.css";
 function QuoraHeader() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const Close = <CloseIcon />;
+  const [inputUrl,setInputUrl] = useState ("") 
 
   return (
     <div className="qHeader">
@@ -120,6 +121,8 @@ function QuoraHeader() {
               >
                 <Input
                   type="text"
+                  value={inputUrl}
+                  onChange = {(e)=> setInputUrl(e.target.value)}
                   style={{
                     margin: "5px 0",
                     border: "1px solid lightgray",
@@ -128,9 +131,13 @@ function QuoraHeader() {
                   }}
                   placeholder="optional: include a link of given context"
                 />
+                {inputUrl !== "" && <img style={{
+                  height: "40vh",
+                  objectFit: "contain",
+                }} src={inputUrl} alt="displayimage" />}
               </div>
             </div>
-            <div className="modal__buttons">
+            <div className="modal__button">
               <button className="cancel" onClick={() => setIsModalOpen(false)}>
                 cancel
               </button>
