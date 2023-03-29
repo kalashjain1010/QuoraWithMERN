@@ -5,7 +5,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const PORT = 80;
 const db = require("./db");
-// const router = require("./routes");
+const router = require("./routes");
 
 //database connection
 
@@ -24,7 +24,7 @@ app.use((req, res, next) => {
 
 //routes
 
-// app.use("/api", router);
+app.use("/api", router);
 
 app.use("/uploads", express.static(path.join(__dirname, "/../uploads")));
 app.use(express.static(path.join(__dirname, "/../frontend/build")));
